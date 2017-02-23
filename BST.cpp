@@ -1,7 +1,15 @@
 #include <bits/stdc++.h>
+#include <chrono>
+
+
+typedef std::chrono::steady_clock Time;
+typedef std::chrono::duration<float> fsec;
+
 using namespace std;
+
 // #define N 200005
 #define N 10000
+
 int TOBALANCE=1; // TOBALANCE is 1 when the condition is Perfectly balanced, 0 otherwise. By changing this constant you can change balance condition.
 int NEARLY_BALANCED = 1;
 int PERFECTLY_BALANCED = 0;
@@ -140,8 +148,6 @@ void insert(Node *&curr,int val,int out[]){
 	}
 	
 	curr = root;
-	// std::cout << __PRETTY_FUNCTION__ << std::endl;
-	// std::cout << "TOBALANCE : " << TOBALANCE << std::endl;
 	if (TOBALANCE) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
@@ -189,11 +195,21 @@ void print_BST(Node *curr, int indent=0)
 }
 
 int main(){
+
+	auto start = Time::now();
+    auto end = Time::now();
+    fsec diff = end - start;
+    fsec tot = end - start;
+    
   Node *root = NULL;
   int out[N] = {0};
   int queries; scanf("%d",&queries);
+  int n = queries;
+  freopen("benchmark.txt", "w", stdout);
+
   while(queries--){
     int c,val; scanf("%d%d",&c,&val);
+    start = Time::now();
     if(c==1){
       //insert
       if(root){
@@ -207,11 +223,29 @@ int main(){
       if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
 	  // if(checkNearBalance(root)) printf("Yes\n"); else printf("No\n");
     }
+    end = Time::now();
+    diff = end - start;
+    tot += diff;
+    std::cout << n - queries << '\t' << diff.count() << '\t' << tot.count() << std::endl;
   }
-  cout<<root->size<<endl;
-  cout<<root->val<<endl;
-  SortedArrayFromBST(root, out, 0);
-  print_array(out);
-  print_BST(root);
+
+	// //Bachmarking code
+	// freopen("iterative.txt", "w", stdout);
+	// while (tot.count() < 10)
+	// {
+	// 	start = Time::now();
+	// 	it_fib(n);
+	// 	end = Time::now();
+	// 	diff = end - start;
+	// 	tot += diff;
+	// 	n++;
+	// }
+	// std::cout << n << '\t' << tot.count() << '\n';
+
+  // cout<<root->size<<endl;
+  // cout<<root->val<<endl;
+  // SortedArrayFromBST(root, out, 0);
+  // print_array(out);
+  // print_BST(root);
   return 0;
 }
