@@ -3,8 +3,8 @@ using namespace std;
 // #define N 200005
 #define N 50
 int TOBALANCE=1; // TOBALANCE is 1 when the condition is Perfectly balanced, 0 otherwise. By changing this constant you can change balance condition.
-int NEARLY_BALANCED = 0;
-int PERFECTLY_BALANCED = 1;
+int NEARLY_BALANCED = 1;
+int PERFECTLY_BALANCED = 0;
 double BALANCE_RATIO = 0.75; //You may change this ratio.
 /* structure of a node of the binary tree.
 val: value at the node
@@ -108,7 +108,9 @@ out[] array is used as a helper array which will be used when the BST does not s
 void insert(Node *&curr,int val,int out[]){
 
 	Node * root = curr;
-	TOBALANCE = checkPerfectBalance(curr);
+	if(PERFECTLY_BALANCED)
+		TOBALANCE = checkPerfectBalance(curr);
+	else TOBALANCE = checkNearBalance(curr);
 	while(true)
 	{
 		if (curr == NULL) {
@@ -138,7 +140,9 @@ void insert(Node *&curr,int val,int out[]){
 	
 	curr = root;
 
-	if (!TOBALANCE) {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+	std::cout << "TOBALANCE : " << TOBALANCE << std::endl;
+	if (TOBALANCE) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
 		deleteNode (curr); 
