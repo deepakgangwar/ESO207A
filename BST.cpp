@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define N 200005
-// #define N 50
+// #define N 200005
+#define N 10000
 int TOBALANCE=1; // TOBALANCE is 1 when the condition is Perfectly balanced, 0 otherwise. By changing this constant you can change balance condition.
 int NEARLY_BALANCED = 1;
 int PERFECTLY_BALANCED = 0;
@@ -140,8 +140,8 @@ void insert(Node *&curr,int val,int out[]){
 	}
 	
 	curr = root;
-	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	std::cout << "TOBALANCE : " << TOBALANCE << std::endl;
+	// std::cout << __PRETTY_FUNCTION__ << std::endl;
+	// std::cout << "TOBALANCE : " << TOBALANCE << std::endl;
 	if (TOBALANCE) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
