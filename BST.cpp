@@ -159,31 +159,6 @@ bool search(Node *curr,int val){
     else return 0;
 }
 
-void print_array(int out[]){
-	for(int i=0;i<N;i++){
-		cout<<'\t'<<out[i];
-	} 
-	cout<<endl;
-}
-
-void print_BST(Node *curr, int indent=0)
-{
-    if(curr != NULL) {
-        if(curr->right) {
-            print_BST(curr->right, indent+4);
-        }
-        if (indent) {
-            std::cout << std::setw(indent) << ' ';
-        }
-        if (curr->right) std::cout<<" /\n" << std::setw(indent) << ' ';
-        std::cout<< curr->val << "\n ";
-        if(curr->left) {
-            std::cout << std::setw(indent) << ' ' <<" \\\n";
-            print_BST(curr->left, indent+4);
-        }
-    }
-}
-
 int main(){
     
   Node *root = NULL;
