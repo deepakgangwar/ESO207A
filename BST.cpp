@@ -76,17 +76,29 @@ void deleteNode(Node *curr){
 This function returns true if the current node satisfies the nearly balanced condition and false otherwise
 */
 bool checkNearBalance(Node *curr){
-    if (!(curr -> left || curr -> right)) return 1;
-    else if(!(curr -> left) || !(curr -> right)) return 0; 
-    return ((curr->left->size <= BALANCE_RATIO * curr->size)&&(curr->right->size <= BALANCE_RATIO * curr->size));
+    // if (!(curr -> left || curr -> right)) return 1;
+    // else if(!(curr -> left) || !(curr -> right)) return 0; 
+    // return ((curr->left->size <= BALANCE_RATIO * curr->size)&&(curr->right->size <= BALANCE_RATIO * curr->size));
+    int left_size,right_size;
+	if (curr -> left == NULL) left_size = 0;
+	else left_size = curr->left->size;
+	if(curr -> right == NULL) right_size = 0; 
+	else right_size = curr->right->size;
+	return ((left_size <= BALANCE_RATIO * curr->size)&&(right_size <= BALANCE_RATIO * curr->size));
 }
 /*
 This function returns true if the current node satisfies the perfectly balanced condition and false otherwise
 */
 bool checkPerfectBalance(Node *curr){
-    if (!(curr -> left || curr -> right)) return 1;
-    else if(!(curr -> left) || !(curr -> right)) return 0; 
-    else return (abs((curr->left->size - curr->right->size))<=1);
+    // if (!(curr -> left || curr -> right)) return 1;
+    // else if(!(curr -> left) || !(curr -> right)) return 0; 
+    // else return (abs((curr->left->size - curr->right->size))<=1);
+    int left_size,right_size;
+	if (curr -> left == NULL) left_size = 0;
+	else left_size = curr->left->size;
+	if(curr -> right == NULL) right_size = 0; 
+	else right_size = curr->right->size;
+	return (abs((left_size - right_size))<=1);
 }
 /*
 This function takes as input a pointer to a node and inserts a node in the subtree of the node depending on the value.
@@ -126,7 +138,7 @@ void insert(Node *&curr,int val,int out[]){
 	
 	curr = root;
 
-	if (!checkNearBalance (root)) {
+	if (!checkPerfectBalance (root)) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
 		deleteNode (curr); 
