@@ -13,7 +13,7 @@ using namespace std;
 int TOBALANCE=1; // TOBALANCE is 1 when the condition is Perfectly balanced, 0 otherwise. By changing this constant you can change balance condition.
 int NEARLY_BALANCED = 1;
 int PERFECTLY_BALANCED = 0;
-double BALANCE_RATIO = 0.75; //You may change this ratio.
+double BALANCE_RATIO = 0.5; //You may change this ratio.
 /* structure of a node of the binary tree.
 val: value at the node
 size: size of subtree rooted at node
@@ -198,20 +198,19 @@ void print_BST(Node *curr, int indent=0)
 
 int main(){
 
-	// auto start = Time::now();
- //    auto end = Time::now();
- //    fsec diff = end - start;
- //    fsec tot = end - start;
+	auto start = Time::now();
+    auto end = Time::now();
+    fsec diff = end - start;
+    fsec tot = end - start;
     
   Node *root = NULL;
   int out[N] = {0};
   int queries; scanf("%d",&queries);
   int n = queries;
-  // freopen("benchmark.txt", "w", stdout);
+  freopen("benchmark_search.txt", "w", stdout);
 
   while(queries--){
     int c,val; scanf("%d%d",&c,&val);
-    // start = Time::now();
     if(c==1){
       //insert
       if(root){
@@ -221,19 +220,21 @@ int main(){
       }
     }else{
       //search query
-      if(search(root,val)) printf("Yes\n"); else printf("No\n");
-      if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
+      start = Time::now();
+      search(root,val);
+      // if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
 	  // if(checkNearBalance(root)) printf("Yes\n"); else printf("No\n");
     }
-    // end = Time::now();
-    // diff = end - start;
-    // tot += diff;
-    // std::cout << n - queries << '\t' << diff.count() << '\t' << tot.count() << std::endl;
+    end = Time::now();
+    diff = end - start;
+    tot += diff;
+    std::cout << (n - queries)/2 << '\t' << diff.count() << '\t' << tot.count() << std::endl;
   }
-  cout<<root->size<<endl;
-  cout<<root->val<<endl;
-  SortedArrayFromBST(root, out, 0);
-  print_array(out);
-  print_BST(root);
+ 
+  // cout<<root->size<<endl;
+  // cout<<root->val<<endl;
+  // SortedArrayFromBST(root, out, 0);
+  // print_array(out);
+  // print_BST(root);
   return 0;
 }
