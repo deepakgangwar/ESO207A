@@ -89,6 +89,7 @@ bool checkNearBalance(Node *curr){
     // else if(!(curr -> left) || !(curr -> right)) return 0; 
     // return ((curr->left->size <= BALANCE_RATIO * curr->size)&&(curr->right->size <= BALANCE_RATIO * curr->size));
     int left_size,right_size;
+    if(curr == NULL) return 1;
 	if (curr -> left == NULL) left_size = 0;
 	else left_size = curr->left->size;
 	if(curr -> right == NULL) right_size = 0; 
@@ -103,6 +104,7 @@ bool checkPerfectBalance(Node *curr){
     // else if(!(curr -> left) || !(curr -> right)) return 0; 
     // else return (abs((curr->left->size - curr->right->size))<=1);
     int left_size,right_size;
+    if(curr == NULL) return 1;
 	if (curr -> left == NULL) left_size = 0;
 	else left_size = curr->left->size;
 	if(curr -> right == NULL) right_size = 0; 
@@ -148,7 +150,7 @@ void insert(Node *&curr,int val,int out[]){
 	}
 	
 	curr = root;
-	if (TOBALANCE) {
+	if (!TOBALANCE) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
 		deleteNode (curr); 
@@ -196,20 +198,20 @@ void print_BST(Node *curr, int indent=0)
 
 int main(){
 
-	auto start = Time::now();
-    auto end = Time::now();
-    fsec diff = end - start;
-    fsec tot = end - start;
+	// auto start = Time::now();
+ //    auto end = Time::now();
+ //    fsec diff = end - start;
+ //    fsec tot = end - start;
     
   Node *root = NULL;
   int out[N] = {0};
   int queries; scanf("%d",&queries);
   int n = queries;
-  freopen("benchmark.txt", "w", stdout);
+  // freopen("benchmark.txt", "w", stdout);
 
   while(queries--){
     int c,val; scanf("%d%d",&c,&val);
-    start = Time::now();
+    // start = Time::now();
     if(c==1){
       //insert
       if(root){
@@ -223,29 +225,15 @@ int main(){
       if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
 	  // if(checkNearBalance(root)) printf("Yes\n"); else printf("No\n");
     }
-    end = Time::now();
-    diff = end - start;
-    tot += diff;
-    std::cout << n - queries << '\t' << diff.count() << '\t' << tot.count() << std::endl;
+    // end = Time::now();
+    // diff = end - start;
+    // tot += diff;
+    // std::cout << n - queries << '\t' << diff.count() << '\t' << tot.count() << std::endl;
   }
-
-	// //Bachmarking code
-	// freopen("iterative.txt", "w", stdout);
-	// while (tot.count() < 10)
-	// {
-	// 	start = Time::now();
-	// 	it_fib(n);
-	// 	end = Time::now();
-	// 	diff = end - start;
-	// 	tot += diff;
-	// 	n++;
-	// }
-	// std::cout << n << '\t' << tot.count() << '\n';
-
-  // cout<<root->size<<endl;
-  // cout<<root->val<<endl;
-  // SortedArrayFromBST(root, out, 0);
-  // print_array(out);
-  // print_BST(root);
+  cout<<root->size<<endl;
+  cout<<root->val<<endl;
+  SortedArrayFromBST(root, out, 0);
+  print_array(out);
+  print_BST(root);
   return 0;
 }
