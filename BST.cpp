@@ -108,7 +108,7 @@ out[] array is used as a helper array which will be used when the BST does not s
 void insert(Node *&curr,int val,int out[]){
 
 	Node * root = curr;
-	
+	TOBALANCE = checkPerfectBalance(curr);
 	while(true)
 	{
 		if (curr == NULL) {
@@ -138,7 +138,7 @@ void insert(Node *&curr,int val,int out[]){
 	
 	curr = root;
 
-	if (!checkPerfectBalance (root)) {
+	if (!TOBALANCE) {
 		
 		int len = SortedArrayFromBST (root , out, 0);
 		deleteNode (curr); 
@@ -158,10 +158,30 @@ bool search(Node *curr,int val){
        search(curr -> right, val);
     else return 0;
 }
+
 void print_array(int out[]){
-    for(int i=0;i<N;i++){
-        cout<<out[i]<<'\t';
-    } 
+	for(int i=0;i<N;i++){
+		cout<<'\t'<<out[i];
+	} 
+	cout<<endl;
+}
+
+void print_BST(Node *curr, int indent=0)
+{
+    if(curr != NULL) {
+        if(curr->right) {
+            print_BST(curr->right, indent+4);
+        }
+        if (indent) {
+            std::cout << std::setw(indent) << ' ';
+        }
+        if (curr->right) std::cout<<" /\n" << std::setw(indent) << ' ';
+        std::cout<< curr->val << "\n ";
+        if(curr->left) {
+            std::cout << std::setw(indent) << ' ' <<" \\\n";
+            print_BST(curr->left, indent+4);
+        }
+    }
 }
 
 int main(){
@@ -180,9 +200,14 @@ int main(){
     }else{
       //search query
       if(search(root,val)) printf("Yes\n"); else printf("No\n");
+      if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
+	  // if(checkNearBalance(root)) printf("Yes\n"); else printf("No\n");
     }
   }
+  cout<<root->size<<endl;
+  cout<<root->val<<endl;
   SortedArrayFromBST(root, out, 0);
   print_array(out);
+  print_BST(root);
   return 0;
 }
