@@ -4,10 +4,15 @@ using namespace std;
 #define N 200005
 // #define N 10000
 
+auto start = Time::now();
+auto end__ = Time::now();
+fsec diff = end__ - start;
+fsec tot = end__ - start;
+
 int TOBALANCE=1; // TOBALANCE is 1 when the condition is Perfectly balanced, 0 otherwise. By changing this constant you can change balance condition.
 int NEARLY_BALANCED = 1;
 int PERFECTLY_BALANCED = 0;
-double BALANCE_RATIO = 0.75; //You may change this ratio.
+double BALANCE_RATIO = 0.5; //You may change this ratio.
 /* structure of a node of the binary tree.
 val: value at the node
 size: size of subtree rooted at node
@@ -91,6 +96,12 @@ bool checkNearBalance(Node *curr){
 This function returns true if the current node satisfies the perfectly balanced condition and false otherwise
 */
 bool checkPerfectBalance(Node *curr){
+
+    // if (!(curr -> left || curr -> right)) return 1;
+    // else if(!(curr -> left) || !(curr -> right)) return 0; 
+    // else return (abs((curr->left->size - curr->right->size))<=1);
+    
+
     int left_size,right_size;
     if(curr == NULL) return 1;
 	if (curr -> left == NULL) left_size = 0;
@@ -98,6 +109,7 @@ bool checkPerfectBalance(Node *curr){
 	if(curr -> right == NULL) right_size = 0; 
 	else right_size = curr->right->size;
 	return (abs((left_size - right_size))<=1);
+	
 }
 /*
 This function takes as input a pointer to a node and inserts a node in the subtree of the node depending on the value.
@@ -185,12 +197,21 @@ void print_BST(Node *curr, int indent=0)
 }
 
 int main(){
-    
+	auto start = Time::now();
+    auto end = Time::now();
+    fsec diff = end - start;
+    fsec tot = end - start;
   Node *root = NULL;
   int out[N] = {0};
   int queries; scanf("%d",&queries);
   while(queries--){
     int c,val; scanf("%d%d",&c,&val);
+  int n = queries;
+  freopen("benchmark.txt", "w", stdout);
+
+  while(queries--){
+    int c,val; scanf("%d%d",&c,&val);
+    start = Time::now();
     if(c==1){
       //insert
       if(root){
@@ -202,6 +223,15 @@ int main(){
       //search query
       if(search(root,val)) printf("Yes\n"); else printf("No\n");
     }
+      start = Time::now();
+      search(root,val);
+      // if(checkPerfectBalance(root)) printf("Yes\n"); else printf("No\n");
+	  // if(checkNearBalance(root)) printf("Yes\n"); else printf("No\n");
+    }
+    end__ = Time::now();
+    diff = end__ - start;
+    tot += diff;
+    std::cout << n - queries << '\t' << diff.count() << '\t' << tot.count() << std::endl;
   }
   return 0;
 }
