@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 13:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1131,10 +1131,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15455 strings out of 493304
- 270869 string characters out of 6139871
- 473662 words of memory out of 5000000
- 18592 multiletter control sequences out of 15000+600000
+ 15456 strings out of 493304
+ 270890 string characters out of 6139871
+ 473648 words of memory out of 5000000
+ 18593 multiletter control sequences out of 15000+600000
  36468 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  57i,19n,72p,495b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1146,7 +1146,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fo
 nts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyr
 e/qhvbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></usr/share/
 texmf/fonts/type1/public/tex-gyre/qhvri.pfb>
-Output written on report.pdf (6 pages, 109569 bytes).
+Output written on report.pdf (6 pages, 109835 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
