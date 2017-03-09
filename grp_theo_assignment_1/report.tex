@@ -123,27 +123,28 @@ while (isfound == 0)
 	else if (A[i] < s)
 		i = i * 2;
 	else if (A[i] > s OR A[i] == empty)
-		modif_bin_search (i);
+		isfound = modif_bin_search (i);
 }
 return isfound;
 }
 \end{lstlisting}
 
 \begin{lstlisting}[caption=modif\_bin\_search.]
-void modif_bin_search (int i)
+BOOL modif_bin_search (int i)
 {
 	L = i / 2;
 	R = i;
 	mid = (L + R) / 2
-	while (mid != R)
+	while (L < R)
 	{
 		if (A[mid] == s)
-			return;
+			return TRUE;
 		else if (A[mid] < s)
 			L = mid + 1;
 		else if (A[mid] > s OR A[mid] == empty)
 			R = mid -1;	
 	}
+	return FALSE;
 }
 \end{lstlisting}
 
