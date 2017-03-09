@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 09:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,30 +1083,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 270--272
  []
 
 
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.298 \textbf
-             {Proof of correctness for \textit{k} predecessor}\\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--312
+Underfull \hbox (badness 10000) in paragraph at lines 300--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--312
+Underfull \hbox (badness 10000) in paragraph at lines 300--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--312
+Underfull \hbox (badness 10000) in paragraph at lines 300--313
 
  []
 
@@ -1120,12 +1107,12 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  14971 strings out of 493304
- 259491 string characters out of 6139871
+ 259493 string characters out of 6139871
  399734 words of memory out of 5000000
  18108 multiletter control sequences out of 15000+600000
  36468 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,72p,480b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,72p,495b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/droid/droid-01.enc}{/usr/share/texmf/fonts/enc/dvips/tex-
 gyre/q-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}</usr/sha
@@ -1134,7 +1121,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fo
 nts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyr
 e/qhvbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></usr/share/
 texmf/fonts/type1/public/tex-gyre/qhvri.pfb>
-Output written on report.pdf (5 pages, 105758 bytes).
+Output written on report.pdf (5 pages, 101495 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream

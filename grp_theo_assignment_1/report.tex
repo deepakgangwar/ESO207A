@@ -256,13 +256,13 @@ level 4/.style={sibling distance = 2.2cm}
 %%%%%%%%%% Step 2 end %%%%%%%%%%%%%
 
 \section*{Problem 4}
-We propose a data structure where we augment to every node of the exiting tree another value which is the predecessor of the node. Now for this data structure we will be able to maintain the log (n) time complexity for Insert, Delete and Query operations and yet find the required \textit{k} predecessor in  O (k + log (n)). Although for this we shall have to change the Insert and Delete operations a bit. The details for the same are as follows.\\
+We propose a data structure where we augment to every node of the exiting tree another value which is the pointer to the predecessor of the node. Now for this data structure we will be able to maintain the log (n) time complexity for Insert, Delete and Query operations and yet find the required \textit{k} predecessor in  O (k + log (n)). Although for this we shall have to change the Insert and Delete operations a bit. The details for the same are as follows.\\
 \textbf{The tree}\\
 A normal RB tree where each node, in addition to its own value also stores the value of its predecessor. So the structure of each node is like\\
 \begin{lstlisting}[label={list:first},caption=Node Structure.]
 struct Node{
   int val;
-  int pre;	// Value of predecessor
+  struct Node *pre;	// Pointer to predecessor
   struct Node *left,*right;  
 };
 \end{lstlisting}
@@ -276,9 +276,12 @@ void k_pred (int num_predecessor,int value_to_search, Node * root)
 	ptr $\leftarrow$ search (key, root);
 	if(ptr == NULL)
 		return;
-	k $\leftarrow$ num_predecessor;
-	print(ptr.pre);
-	k_pred ( k - 1, ptr.pre, root);
+	while (k != 0)
+	{
+		print(ptr.pre.val);
+		ptr $\leftarrow$ ptr.pre;
+		k = k - 1;	
+	}
 }
 
 Node * search (int key, Node * root)
@@ -294,14 +297,12 @@ Node * search (int key, Node * root)
 	}
 }
 \end{lstlisting}
-\\
 \textbf{Proof of correctness for \textit{k} predecessor}\\
-Since this is a recursive algorithm,  after every call the value that it prints is basically the immediate predecessor and the function sets up for \textit{k - 1} sequential calls. Thus, as after every call we have one predecessor and we have the next call then. This continues till we have exhausted all our calls which was equal to the number of the predecessors to print.
-Hence, we can conclude that this algorithm gives the correct outputs at the end of recursive calls.\\
+Since this is an iterative algorithm, after every loop the value that it prints is basically the immediate predecessor of the current node. Now as this loop is called exactly k times and every time the loop updates the current node and prints the immediate predecessor to it. Thus, after k iterations when the loop is finally exited it would have published k predecessors of the given number.
+Hence, we can conclude that this algorithm gives the correct outputs at the end of execution.\\
 \\
 \textbf{Time Complexity for the above algorithm}\\
-For each query the search effectively does Binary Search and then returns the pointer to it. Thus its time complexity will be log (n) as is know. Now, each call of k\_pred takes T(k) time, such that T(k) = 4 * T(1) + T(k - 1) + O(log (n)).
-Hence, this algorithm is of \quad time O(k + k * log (n)).\\
+For each query the search effectively does Binary Search and then returns the pointer to it. Thus its time complexity will be log (n) as is know. Now, each iteration of the loop would take 3 * T(1) time and the loop is executed k times. Hence the total time taken is 3 * k * T(1). Hence, the order would be log (n) + k.\\
 \\
 \textbf{Changes to Insert function}\\
 The only change we need to make in Insert is to search for the predecessor of the inserted value and augment this into the newly inserted node. Now, search for the predecessor shall be of order log (n), insert itself is of order log (n). Hence, insert is still done in O (log (n)).\\
