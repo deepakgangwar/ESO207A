@@ -15,6 +15,7 @@
 \usepackage{enumerate}
 \usepackage{multicol}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 
 \usepackage{geometry}
 \geometry{total={210mm,297mm},
@@ -90,6 +91,10 @@ bindingoffset=0mm, top=20mm,bottom=20mm}
     escapeinside={\%*}{*)}
 }
 
+\tikzstyle{arn_n} = [circle, white, font=\bfseries, draw=black, fill=black, align=center, inner sep=0pt,text width=1.5em, text centered]% black node
+\tikzstyle{arn_r} = [circle, red, draw=red, align=center, inner sep=0pt,text width=1.5em, text centered, very thick]% red node
+\tikzstyle{arn_x} = [rectangle, draw=black, align=center, inner sep=0pt,minimum width=0.5em, minimum height=0.5em]% NIL 'node'
+
 %%%----------%%%----------%%%----------%%%----------%%%
 
 \begin{document}
@@ -150,18 +155,103 @@ TODO fill here.\\
 The function modif\_bin\_search takes log(i) steps to give us a solution (Similar to a binary search). Now the original function in the worst case takes log(n) steps. Thus in the worst possible case our algorithm shall consume 2 * log (n). Hence, the order of the given algorithm is log (n).\\
 This can also be proposed by saying that the number of elements that this algorithm skips keeps on doubling every loop and so the order should be log (n).\\
 Notice that the base of log (n) is decided based on our choice of the multiplier in every step.
-\section*{Problem 2}
-
-\begin{lstlisting}[label={list:second},caption=Sample Bash code.]
-#! /bin/bash
-python stage1.py
-echo "Stage I done!"
-python stage2.py
-echo "Stage II done!"
-python stage3.py
-echo "Stage III done!"
-\end{lstlisting}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+\section*{Problem 3}
+\textbf{Part (a)} Deleting 55 \\
+\textbf{Part (b)} Inserting 34 \\
+%%%%%%%%%% Step 1 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 6.5cm},
+level 3/.style={sibling distance = 3.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {79}
+    child{ node [arn_n] {35}
+        child{ node [arn_r] {19} 
+            child{ node [arn_n, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}           		
+            		}            	
+				child{ node [arn_n] {13}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+            child{ node [arn_n] {22}
+				child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}				
+				}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}		
+					}
+            	}
+        	}
+        child{ node [arn_n] {49}
+            child{ node [arn_n] {39}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+            }
+            child{ node [arn_n] {55}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}            
+            }
+        }                            
+    }
+    child{ node [arn_x] {}
+    }
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 1 end %%%%%%%%%%%%%
+\linebreak
+%%%%%%%%%% Step 2 begin %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 6.5cm},
+level 3/.style={sibling distance = 3.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {79}
+    child{ node [arn_n] {35}
+        child{ node [arn_r] {19} 
+            child{ node [arn_n, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}           		
+            		}            	
+				child{ node [arn_n] {13}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+            child{ node [arn_n] {22}
+				child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}				
+				}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_r] {34}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}						
+						}		
+					}
+            	}
+        	}
+        child{ node [arn_n] {49}
+            child{ node [arn_n] {39}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+            }
+            child{ node [arn_n] {55}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}            
+            }
+        }                            
+    }
+    child{ node [arn_x] {}
+    }
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 2 end %%%%%%%%%%%%%
 \end{document}

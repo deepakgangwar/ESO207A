@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 05:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 07:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,7 +840,16 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
-))) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+)))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
+s.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
+\arrowsize=\dimen165
+))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -857,14 +866,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@cnth=\count128
 \Gm@cntv=\count129
 \c@Gm@tempcnt=\count130
-\Gm@bindingoffset=\dimen165
-\Gm@wd@mp=\dimen166
-\Gm@odd@mp=\dimen167
-\Gm@even@mp=\dimen168
-\Gm@layoutwidth=\dimen169
-\Gm@layoutheight=\dimen170
-\Gm@layouthoffset=\dimen171
-\Gm@layoutvoffset=\dimen172
+\Gm@bindingoffset=\dimen166
+\Gm@wd@mp=\dimen167
+\Gm@odd@mp=\dimen168
+\Gm@even@mp=\dimen169
+\Gm@layoutwidth=\dimen170
+\Gm@layoutheight=\dimen171
+\Gm@layouthoffset=\dimen172
+\Gm@layoutvoffset=\dimen173
 \Gm@dimlist=\toks38
 )
 
@@ -892,14 +901,14 @@ Package geometry Warning: Over-specification in `v'-direction.
 \lst@gtempboxa=\box63
 \lst@token=\toks39
 \lst@length=\count133
-\lst@currlwidth=\dimen173
+\lst@currlwidth=\dimen174
 \lst@column=\count134
 \lst@pos=\count135
-\lst@lostspace=\dimen174
-\lst@width=\dimen175
+\lst@lostspace=\dimen175
+\lst@width=\dimen176
 \lst@newlines=\count136
 \lst@lineno=\count137
-\lst@maxwidth=\dimen176
+\lst@maxwidth=\dimen177
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
@@ -917,26 +926,27 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 100.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 95.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 100.
 
 (/usr/share/texmf/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
@@ -944,13 +954,13 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
-\scratchdimen=\dimen177
+\scratchdimen=\dimen178
 \scratchbox=\box65
 \nofMPsegments=\count141
 \nofMParguments=\count142
 \everyMPshowfont=\toks40
 \MPscratchCnt=\count143
-\MPscratchDim=\dimen178
+\MPscratchDim=\dimen179
 \MPnumerator=\count144
 \makeMPintoPDFobject=\count145
 \everyMPtoPDFconversion=\toks41
@@ -1016,7 +1026,7 @@ ABD: EveryShipout initializing macros
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count146
-LaTeX Font Info:    Try loading font information for TS1+qhv on input line 103.
+LaTeX Font Info:    Try loading font information for TS1+qhv on input line 108.
 
 (/usr/share/texmf/tex/latex/tex-gyre/ts1qhv.fd
 File: ts1qhv.fd 2009/09/25 v1.2 font definition file for TS1/qhv
@@ -1024,56 +1034,61 @@ File: ts1qhv.fd 2009/09/25 v1.2 font definition file for TS1/qhv
 
 LaTeX Font Warning: Font shape `TS1/qhv/m/sc' undefined
 (Font)              using `TS1/qhv/m/n' instead
-(Font)              for symbol `textnumero' on input line 103.
+(Font)              for symbol `textnumero' on input line 108.
 
-LaTeX Font Info:    Try loading font information for T1+fdm on input line 109.
+LaTeX Font Info:    Try loading font information for T1+fdm on input line 114.
 (/usr/share/texlive/texmf-dist/tex/latex/droid/t1fdm.fd
 File: t1fdm.fd 2011/09/11 Fontinst v1.933 font definitions for T1/fdm.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 110.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 110.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
 
  []
 
-[2] (./report.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--257
+[]
+ []
+
+[2] [3] (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 14348 strings out of 493304
- 243604 string characters out of 6139871
- 381131 words of memory out of 5000000
- 17493 multiletter control sequences out of 15000+600000
+ 14947 strings out of 493304
+ 259238 string characters out of 6139871
+ 399694 words of memory out of 5000000
+ 18086 multiletter control sequences out of 15000+600000
  30167 words of font info for 39 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,12n,55p,458b,1464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,72p,419b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/droid/droid-01.enc}{/usr/share
 /texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf/fonts/enc/dvips/tex-
 gyre/q-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}</usr/sha
 re/texlive/texmf-dist/fonts/type1/public/droid/DroidSansMono.pfb></usr/share/te
 xmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/t
 ex-gyre/qhvr.pfb>
-Output written on report.pdf (2 pages, 64393 bytes).
+Output written on report.pdf (3 pages, 69190 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 37 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
