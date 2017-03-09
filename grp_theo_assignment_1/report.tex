@@ -123,7 +123,10 @@ while (isfound == 0)
 	else if (A[i] < s)
 		i = i * 2;
 	else if (A[i] > s OR A[i] == empty)
-		isfound = modif_bin_search (i);
+		{
+			isfound = modif_bin_search (i);
+			break;
+		}
 }
 return isfound;
 }
@@ -149,9 +152,11 @@ BOOL modif_bin_search (int i)
 \end{lstlisting}
 
 \textbf{Proof of correctness}\\
-TODO fill here.\\
+For the infinite\_search() function, in order to prove correctness we can take the assertion that if the loop breaks after i iterations then the given key must lie between i and i/2.\\
+The above assertion is true for all cases irrespective the key values being found or not. Now, this function will, if the key is found, get to modified binary search. Now, for the modified binary search, we have a normal binary search only difference being, even if the value at R not be there, we are basically assuming it to be some high value. Note that this value shall always be higher than the key as that is the only case when the function is called.\\
+Now this means that after ith iteration if the loop exits then they key value was lying between $k = 2^i$ and $k/2$. Now the modified binary search works the same way as a normal Binary search only except it ensures that the absence of value at k will not affect the end result.\\
+Hence, this algorithm will only return correct results.
 \\
-
 \textbf{Time Complexity}\\
 The function modif\_bin\_search takes log(i) steps to give us a solution (Similar to a binary search). Now the original function in the worst case takes log(n) steps. Thus in the worst possible case our algorithm shall consume 2 * log (n). Hence, the order of the given algorithm is log (n).\\
 This can also be proposed by saying that the number of elements that this algorithm skips keeps on doubling every loop and so the order should be log (n).\\
