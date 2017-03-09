@@ -157,6 +157,229 @@ This can also be proposed by saying that the number of elements that this algori
 Notice that the base of log (n) is decided based on our choice of the multiplier in every step.
 \section*{Problem 3}
 \textbf{Part (a)} Deleting 55 \\
+Step I.\\
+%%%%%%%%%% Step 1 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 6.5cm},
+level 3/.style={sibling distance = 3.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {79}
+    child{ node [arn_n] {35}
+        child{ node [arn_r] {19} 
+            child{ node [arn_n, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}           		
+            		}            	
+				child{ node [arn_n] {13}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+            child{ node [arn_n] {22}
+				child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}				
+				}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}		
+					}
+            	}
+        	}
+        child{ node [arn_n] {49}
+            child{ node [arn_n] {39}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+            }
+            child{ node [arn_x] {}}
+        }                            
+    }
+    child{ node [arn_x] {}
+    }
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 1 end %%%%%%%%%%%%%
+\linebreak
+\pagebreak
+Step II.\\
+%%%%%%%%%% Step 2 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 6.5cm},
+level 3/.style={sibling distance = 3.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {79}
+    child{ node [arn_n] {35}
+        child{ node [arn_r] {22} 
+            child{ node [arn_n, name=leaf 5] {19}
+            	child{ node [arn_n] {10}
+					child{ node [arn_n] {4}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}					
+						}
+					child{ node [arn_n] {13}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}		
+						}           		
+            		}            	
+				child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+            child{ node [arn_n] {33}
+				child{ node [arn_x] {}}
+				child{ node [arn_x] {}}
+            	}
+        	}
+        child{ node [arn_n] {49}
+            child{ node [arn_n] {39}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+            }
+            child{ node [arn_x] {}}
+        }                            
+    }
+    child{ node [arn_x] {}
+    }
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 2 end %%%%%%%%%%%%%
+\linebreak
+Step III.\\
+%%%%%%%%%% Step 3 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 6.5cm},
+level 3/.style={sibling distance = 3.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {79}
+    child{ node [arn_n] {22}
+        child{ node [arn_r] {19} 
+            child{ node [arn_n, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}					
+						}
+					child{ node [arn_n] {13}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}		
+						}           		
+            		}            	
+			child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+        child{ node [arn_n] {35}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+				child{ node [arn_n] {49}
+					child{ node [arn_n] {39}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}				
+						}					
+					}
+            	}
+        	}
+        child{ node [arn_x] {}}                            
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 3 end %%%%%%%%%%%%%
+\linebreak
+Step IV.\\
+%%%%%%%%%% Step 4 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 7.5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 3.5cm},
+level 3/.style={sibling distance = 2.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {22}
+        child{ node [arn_r] {19} 
+            child{ node [arn_n, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}					
+						}
+					child{ node [arn_n] {13}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}		
+						}           		
+            		}            	
+			child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+        child{ node [arn_n] {35}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+				child{ node [arn_n] {49}
+					child{ node [arn_n] {39}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}				
+						}					
+					child{ node [arn_n] {79}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}				
+						}					
+					}
+            	}
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 4 end %%%%%%%%%%%%%
+\linebreak
+Step V.\\
+%%%%%%%%%% Step 5 %%%%%%%%%%%%%
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 7.5cm/#1, level distance = 1.5cm},
+level 2/.style={sibling distance = 3.5cm},
+level 3/.style={sibling distance = 2.5cm},
+level 4/.style={sibling distance = 2.2cm}
+] 
+\node [arn_n] {22}
+        child{ node [arn_n] {19} 
+            child{ node [arn_r, name=leaf 5] {10}
+            	child{ node [arn_n] {4}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}					
+						}
+					child{ node [arn_n] {13}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}		
+						}           		
+            		}            	
+			child{ node [arn_n] {20}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+            	}
+        child{ node [arn_n] {35}
+				child{ node [arn_n] {33}
+					child{ node [arn_x] {}}
+					child{ node [arn_x] {}}
+					}
+				child{ node [arn_r] {49}
+					child{ node [arn_n] {39}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}				
+						}					
+					child{ node [arn_n] {79}
+						child{ node [arn_x] {}}
+						child{ node [arn_x] {}}				
+						}					
+					}
+            	}
+; 
+\end{tikzpicture}
+%%%%%%%%%% Step 5 end %%%%%%%%%%%%%
+\linebreak
+%%%%%%%%%%%%%%%%%%%Part(a)End%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Part (b)} Inserting 34 \\
 %%%%%%%%%% Step 1 %%%%%%%%%%%%%
 \begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
@@ -266,7 +489,6 @@ struct Node{
   struct Node *left,*right;  
 };
 \end{lstlisting}
-\pagebreak
 Now the algorithms\\
 \textbf{Algorithm for \textit{k} predecessor}\\
 \begin{lstlisting}[label={list:first},caption=k predecessor, mathescape = true]

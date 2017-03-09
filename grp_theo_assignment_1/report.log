@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 10:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.21)  9 MAR 2017 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1068,36 +1068,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--153
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--257
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
 []
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
 
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
-
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
+[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 300--313
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--480
+[]
+ []
+
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 482--485
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 492--494
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 522--535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 300--313
+Underfull \hbox (badness 10000) in paragraph at lines 522--535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 300--313
+Underfull \hbox (badness 10000) in paragraph at lines 522--535
 
  []
 
-[4] [5] (./report.aux)
+[6] (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1106,13 +1131,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14971 strings out of 493304
- 259493 string characters out of 6139871
- 399734 words of memory out of 5000000
- 18108 multiletter control sequences out of 15000+600000
+ 15455 strings out of 493304
+ 270869 string characters out of 6139871
+ 473662 words of memory out of 5000000
+ 18592 multiletter control sequences out of 15000+600000
  36468 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,72p,495b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,19n,72p,495b,1872s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/droid/droid-01.enc}{/usr/share/texmf/fonts/enc/dvips/tex-
 gyre/q-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}</usr/sha
@@ -1121,10 +1146,10 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fo
 nts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyr
 e/qhvbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></usr/share/
 texmf/fonts/type1/public/tex-gyre/qhvri.pfb>
-Output written on report.pdf (5 pages, 101495 bytes).
+Output written on report.pdf (6 pages, 109569 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
