@@ -161,6 +161,43 @@ Hence, this algorithm will only return correct results.
 The function modif\_bin\_search takes log(i) steps to give us a solution (Similar to a binary search). Now the original function in the worst case takes log(n) steps. Thus in the worst possible case our algorithm shall consume 2 * log (n). Hence, the order of the given algorithm is log (n).\\
 This can also be proposed by saying that the number of elements that this algorithm skips keeps on doubling every loop and so the order should be log (n).\\
 Notice that the base of log (n) is decided based on our choice of the multiplier in every step.
+
+\section*{Problem 2}
+\textbf{Yes}, it is possible to give the maximum size of the banner. Algorithm of the same is as following - 
+\begin{lstlisting}[caption=Pseudo Code.]
+left = 0; right = n;
+max_rectangle_area (height[n],width[n],left,right)
+{
+    if (left==right) return {height(left),width(left)};
+    m = right - left + 1;
+    return merge( max_rectangle_area (height[n],width[n],left,right - m), max_rectangle_area (height[n],width[n],right - m + 1,right));   
+}
+merge({h1,d1},{h2,d2})
+{
+    if(h1 >= h2) temp = {h2,(d1+d2)};
+    else temp = {h1*(d1+d2)};
+    return max_area({h1,d1},{h2,d2},temp);
+}
+max_area(area1,area2,area3)
+{
+    if(area1[1]*area1[2] >= area2[1]*area2[2]){
+        if(area1[1]*area1[2] >= area3[1]*area3[2]) return area1;}
+    else if(area2[1]*area2[2] >= area3[1]*area3[2]) return area2;
+    else return area3;
+}
+
+\end{lstlisting}
+
+Given algorithm is similar to merge sort.\\
+\textbf{Proof Of Correctness -}\\
+Base Case is n = 1. For base case max area is equal to the area of building which is correct.\\
+Assume the algo is correct for all n < k the for n = k,\\
+buildings will be divided in 2 sets with n = k/2. As (k/2 < k) so the algo will give correct output for k also provided that merge function is correct.\\
+As merge function gives the max possible area of two halves so the function is correct.\\
+\textbf{Time complexity -}\\
+T(n) = 2*T(n/2) + N and T(1) = 1.\\
+$\implies T(n) = O(nlogn)$\\
+
 \section*{Problem 3}
 \textbf{Part (a)} Deleting 55 \\
 Step I.\\
