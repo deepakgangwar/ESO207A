@@ -5,15 +5,17 @@ using namespace std;
 
 void Query(int64_t i,int64_t j,int64_t l,int64_t r,int64_t B[]){
 	int64_t sum = 0;
+	int64_t mod = 1E9;
 	for (int64_t k = i; k <= j; k++)
 	{	
 		// cout<<"k: "<<k<<endl;
 		if((l <= B[k]) && (B[k] <= r))
 			{
-				sum = sum + B[k];
+				sum = (sum + B[k])%mod;
 				// cout<<"sum: "<<sum<<endl;
 			}
 	}
+	sum += 7;
 	cout<<sum<<endl;
 }
 
@@ -30,7 +32,7 @@ int main() {
 	cin>>arraySize;
 	int64_t c[arraySize],b[arraySize];
 	for (int64_t i = 0;i < arraySize;i++){
-		cin>>c[i];
+		c[i] = i;
 	}
 	int64_t querySize;
 	cin>>querySize;
