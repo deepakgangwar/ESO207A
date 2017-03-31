@@ -1,0 +1,115 @@
+/*******************************
+ * Standard Naive Merge Sort
+ * ****************************/
+
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
+
+typedef long long int llint_;
+
+#define ARRAY_SIZE      int (1e2)
+#define INTEGER_SIZE    int (1e2)
+
+void merge_arrays (llint_ array[], int l, int r)
+{
+    int mid     = l / 2 + r / 2;
+    int l_size  = mid - l + 1;
+    int r_size  = r - mid;
+    int i = 0, j = 0;
+    llint_ left_arr [l_size];
+    llint_ right_arr [r_size];
+
+    for (i = 0; i < l_size;  i ++) {
+
+        left_arr [i] = array [l + i];
+
+    }
+
+    for (i = 0; i < r_size;  i ++) {
+
+        right_arr [i] = array [i + mid + 1];
+
+    }
+
+    i = 0, j = 0;
+    while (i < l_size && j < r_size) {
+
+        if (left_arr [i] < right_arr [j]) {
+
+            array [l + i + j] = left_arr [i];
+            i++;
+
+        }
+        else {
+
+            array [l + i + j] = right_arr [j];
+            j++;
+
+        }
+    }
+
+    while (i < l_size) {
+        array [l + i + j] = left_arr [i];
+        i++;
+    }
+
+    while (j < r_size) {
+        array [l + i + j] = right_arr [j];
+        j++;
+    }
+}
+
+void merge_sort (llint_ array[], int l, int r)
+{
+    if (l >= r)
+        return;
+    else {
+
+    int mid = (l / 2) + (r / 2);
+
+//Sorting the left side of the array
+    merge_sort (array, l, mid);
+
+//Sorting the right side of the array
+    merge_sort (array, mid + 1, r);
+
+    merge_arrays (array, l, r);
+    }
+}
+
+
+void generate_array(llint_ * array, int array_len)
+{
+
+    std::srand (std::time (NULL));
+
+    for (int i = 0; i < array_len; i++){
+        array[i] = (std::rand() % INTEGER_SIZE);
+    }
+
+}
+
+void print_array (llint_ * array, int size)
+{
+
+    for (int i = 0; i < size; i++){
+
+        std::cout <<  array [i]  << '\n';
+
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+
+    llint_ array[ARRAY_SIZE];
+    generate_array (array, ARRAY_SIZE);
+    print_array (array, ARRAY_SIZE);
+
+    merge_sort (array, 0, ARRAY_SIZE - 1);
+
+    print_array (array, ARRAY_SIZE);
+
+}
