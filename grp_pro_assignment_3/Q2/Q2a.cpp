@@ -3,9 +3,9 @@
 
 using namespace std;
 
-void Op(int64_t c[],int64_t low,int64_t high,int64_t offset){
+void Op(int64_t c[],int64_t low,int64_t high){
 	int64_t n = high - low + 1;
-	if(n <= 1) return;
+	if(n <= 1) return;												//base case
 
 	int64_t n_two = n/3;
 	int64_t n_one = n/3;
@@ -17,7 +17,7 @@ void Op(int64_t c[],int64_t low,int64_t high,int64_t offset){
 	int64_t *two = (int64_t*)calloc(n_two , sizeof(int64_t));
 	int64_t *one = (int64_t*)calloc(n_one , sizeof(int64_t));
 	int64_t *zero = (int64_t*)calloc(n_zero , sizeof(int64_t));
-	for (int64_t i = low; i <= high; i++){
+	for (int64_t i = low; i <= high; i++){							//store respective elements in arrays
 		if((i-low)%3 == 0)
 			zero[(i-low)/3] = c[i];
 		else if((i-low)%3 == 1)
@@ -25,7 +25,7 @@ void Op(int64_t c[],int64_t low,int64_t high,int64_t offset){
 		else if((i-low)%3 == 2)
 			two[(i-low)/3] = c[i];
 	}
-
+																	//combining arrays in required order
 	for (int64_t i = low; i <= high; i++){
 		if((i-low) < n_two)
 			c[i] = two[i-low];
@@ -37,15 +37,15 @@ void Op(int64_t c[],int64_t low,int64_t high,int64_t offset){
 
 	free(two);
 	free(one);
-	free(zero);
-	Op(c,offset+0,offset+n_two-1,offset);
-	Op(c,offset+n_two,offset+n_one+n_two-1,offset+n_two);
-	Op(c,offset+n_one+n_two,offset+n_zero+n_one+n_two-1,offset+n_two+n_one);
+	free(zero);														//free memory of array
+	Op(c,low+0,low+n_two-1);										//recursive calls of Op for 3 parts of c
+	Op(c,low+n_two,low+n_one+n_two-1);
+	Op(c,low+n_one+n_two,low+n_zero+n_one+n_two-1);
 }
 
 int main() {
 	int64_t arraySize;
-	cin>>arraySize;
+	cin>>arraySize;														//take Size of array as input 
 	int64_t c[arraySize],b[arraySize+1];
 	for (int64_t i = 0;i < arraySize;i++){
 		cin>>c[i];
@@ -53,11 +53,11 @@ int main() {
 	int64_t querySize;
 	cin>>querySize;
 	int64_t queries[4][querySize];
-	Op(c,0,arraySize-1,0);
+	Op(c,0,arraySize-1);												//Required operation on array
 	for (int64_t i = 0;i < querySize;i++){
 		cin>>queries[0][i]>>queries[1][i]>>queries[2][i]>>queries[3][i];
 	}
-
+																		//maintaining a auxiliary array for queries
 	b[0] = 0;
 	for(int64_t i = 0; i < arraySize;i++){
 		b[i+1] = b[i] + c[i];
@@ -65,7 +65,7 @@ int main() {
 
 	for (int64_t i = 0; i < querySize; i++)
 	{
-		cout<<b[queries[1][i]+1] - b[queries[0][i]]<<endl;	
+		cout<<b[queries[1][i]+1] - b[queries[0][i]]<<endl;				//returns sum of ck where i<=k<=j
 	}
 	
     return 0;
