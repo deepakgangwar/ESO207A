@@ -1,5 +1,5 @@
 /*******************************
- * Standard Naive Merge Sort
+ * Naive Recursive Merge Sort
  * ****************************/
 
 #include <ctime>
@@ -16,7 +16,7 @@ typedef long long int llint_;
  ****************************************************************************/
 
 #define ARRAY_SIZE      int (1e2)
-#define NUM_AVARAGE     int (1e2)
+#define NUM_AVARAGE     int (1e3)
 #define INTEGER_SIZE    int (1e2)
 #define BENCHMARKING    false
 
@@ -98,6 +98,7 @@ void generate_array(llint_ * array, int array_len)
 }
 
 void print_array (llint_ * array, int size)
+/* Simply prints the array, due to large size print them in column */
 {
 
     for (int i = 0; i < size; i++){
