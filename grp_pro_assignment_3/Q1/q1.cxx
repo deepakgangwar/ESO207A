@@ -1,8 +1,11 @@
 #include <ctime>
+#include <chrono>
 #include <cstdlib>
 #include <iostream>
 
 typedef long long int llint_;
+typedef std::chrono::duration<float> fsec;
+typedef std::chrono::high_resolution_clock Time;
 
 /****************************************************************************
  * ARRAY_SIZE controls the size of the array, i.e 'n'.
@@ -14,7 +17,7 @@ typedef long long int llint_;
 #define ARRAY_SIZE      int (1e2)
 #define NUM_AVARAGE     int (1e3)
 #define INTEGER_SIZE    int (1e2)
-#define BENCHMARKING    false
+#define BENCHMARKING    true
 
 
 /*********************** Miscelleneous Utility Functions **********************/
@@ -169,7 +172,6 @@ void quick_sort (llint_ array [], int l, int r)
     if (l < r) {
 
         int i = partition (array, l, r);
-        print_array (array, ARRAY_SIZE);
         quick_sort (array, l, i - 1);
         quick_sort (array, i + 1, r);
 
@@ -181,16 +183,56 @@ void quick_sort (llint_ array [], int l, int r)
 int main()
 {
 
-    llint_ array [ARRAY_SIZE];
-    llint_ array_copy [ARRAY_SIZE];
-    generate_array (array, ARRAY_SIZE);
-    copy_array (array, array_copy, ARRAY_SIZE);
-    print_array (array, ARRAY_SIZE);
+    if (BENCHMARKING) {
 
-    merge_sort (array, 0, ARRAY_SIZE - 1);
-    quick_sort (array_copy, 0, ARRAY_SIZE -1);
+        llint_ array [ARRAY_SIZE];
+        llint_ array_copy [ARRAY_SIZE];
 
-    print_array (array, ARRAY_SIZE);
-    print_array (array_copy, ARRAY_SIZE);
+        Time::time_point start  = Time::now();
+        Time::time_point end    = Time::now();
+        fsec q_time = start - end;
+        fsec m_time = start - end;
+
+        for (int i = 0; i < NUM_AVARAGE; i++) {
+
+            generate_array (array, ARRAY_SIZE);
+            copy_array (array, array_copy, ARRAY_SIZE);
+            print_array (array, ARRAY_SIZE);
+
+            start = Time::now();
+            merge_sort (array, 0, ARRAY_SIZE - 1);
+            end = Time::now();
+            m_time += end - start;
+
+            start = Time::now();
+            quick_sort (array_copy, 0, ARRAY_SIZE -1);
+            end = Time::now();
+            q_time += end - start;
+
+        }
+
+        m_time = m_time / NUM_AVARAGE;
+        q_time = q_time / NUM_AVARAGE;
+
+        std::cout << "merge time :" << m_time.count () << std::endl;
+        std::cout << "quick time :" << q_time.count () << std::endl;
+
+    }
+
+    else {
+
+        llint_ array [ARRAY_SIZE];
+        llint_ array_copy [ARRAY_SIZE];
+        generate_array (array, ARRAY_SIZE);
+        copy_array (array, array_copy, ARRAY_SIZE);
+        print_array (array, ARRAY_SIZE);
+
+        merge_sort (array, 0, ARRAY_SIZE - 1);
+        quick_sort (array_copy, 0, ARRAY_SIZE -1);
+
+        print_array (array, ARRAY_SIZE);
+        print_array (array_copy, ARRAY_SIZE);
+
+    }
 
 }
