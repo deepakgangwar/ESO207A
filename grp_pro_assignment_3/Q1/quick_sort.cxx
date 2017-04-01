@@ -45,21 +45,26 @@ void print_array (llint_ * array, int size)
 
 int partition (llint_ array [], int l, int r)
 {
-    llint_ pivot = array [l];
+    llint_ pivot = array [r];
     llint_ temp = 0;
-    int i = 0, j = l;
+    int i = l, j = l - 1;
 
-    for (i = l; i <= r; i++) {
+    for (; i < r; i++) {
 
         if (array [i] <= pivot) {
 
+            j++;
             temp = array [i];
-            array [i] = pivot;
+            array [i] = array [j];
             array [j] = temp;
-            j = i;
 
         }
     }
+
+        temp = array [j + 1];
+        array [j + 1] = pivot;
+        array [r] = temp;
+
 
     return j;
 }
