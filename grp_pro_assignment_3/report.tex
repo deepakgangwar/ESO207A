@@ -55,7 +55,7 @@ bindingoffset=0mm, top=20mm,bottom=20mm}
 \lhead{}
 \chead{}
 \rhead{}
-\lfoot{Assignment \textnumero{} 2}
+\lfoot{Assignment \textnumero{} 3}
 \cfoot{}
 \rfoot{Page \thepage}
 \renewcommand{\headrulewidth}{0pt}
@@ -101,476 +101,117 @@ bindingoffset=0mm, top=20mm,bottom=20mm}
 
 \author{Harsh Sinha(14265), Deepak Gangwar(14208)}
 
-\date{30/03/2017}
+\date{01/04/2017}
 
 \maketitle
 
 \section*{Problem 1}
+\subsection*{Part A}
+\begin{center}
+ \begin{tabular}{||c c c c c c||} 
+ \hline
+  & $n = 10^2$ & $n = 10^3$ & $n = 10^4$ & $n = 10^5$ & $n = 10^6$\\ [0.5ex] 
+ \hline\hline
+ Average running time(Sec.) \\of QuickSort & $1.43 * 10^-5$ & $1.23 * 10^-4$ & $1.27 * 10^-3$ & $1.53 * 10^-2$ & $0.185568$\\ 
+ \hline
+ Average running time(Sec.) \\of MergeSort & $1.97 * 10^-5$ & $1.62 * 10^-4$ & $1.66 * 10^-3$ & $1.95 * 10^-2$ & $0.235445$\\
+ \hline
+ Average number of \\comparisons in
+QuickSort & 353 & 5753 & 79443 & 1027068 & 12490416\\
+ \hline
+ Average number of \\comparisons in
+MergeSort & 267 & 4346 & 60191 & 768229 & 9337462\\
+ \hline
+ No. of times MergeSort \\had lesser no.
+of comparisons \\than QuickSort & 938 & 999 & 1000 & 1000 & 1000\\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
 
-The pseudo code is as follows.
+\p{}
 
-\begin{lstlisting}[label={list:first},caption=Pseudo code -- Search in an Infinite Array.]
-BOOL infinite_search{
-isfound = FALSE;
-i = 1;
-s = s;
-while (isfound == 0)
-{
-	if (A[i] == s)
-		isfound = TRUE;
-	else if (A[i] < s)
-		i = i * 2;
-	else if (A[i] > s OR A[i] == empty)
-		{
-			isfound = modif_bin_search (i);
-			break;
-		}
-}
-return isfound;
-}
-\end{lstlisting}
+\subsection*{Part B}
+\begin{center}
+ \begin{tabular}{||c c c c c c||} 
+ \hline
+  & $n = 10^2$ & $n = 10^3$ & $n = 10^4$ & $n = 10^5$ & $n = 10^6$\\ [0.5ex] 
+ \hline\hline
+ Average running time(Sec.) \\of QuickSort & $1.43 * 10^-5$ & $1.23 * 10^-4$ & $1.27 * 10^-3$ & $1.53 * 10^-2$ & $0.185568$\\ 
+ \hline
+ Average number of \\comparisons in
+QuickSort & 353 & 5797 & 80443 & 1034672 & 12490416\\
+ \hline
+Percentage of cases \\when running time
+of QuickSort \\exceeds average by 5\% & 651 & 699 & 928 & 976 & 956\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 10\% & 68 & 34 & 15 & 20 & 32\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 20\% & 193 & 63 & 10 & 3 & 7\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 30\% & 57 & 45 & 14 & 0 & 3\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 40\% & 14 & 38 & 13 & 0 & 1\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 50\% & 3 & 27 & 3 & 0 & 1\\
+ \hline
+ Percentage of cases \\when running time
+of QuickSort \\exceeds average by 100\% & 11 & 79 & 11 & 0 & 0\\
+ \hline
+\end{tabular}
+\end{center}
 
-\begin{lstlisting}[caption=modif\_bin\_search.]
-BOOL modif_bin_search (int i)
-{
-	L = i / 2;
-	R = i;
-	mid = (L + R) / 2
-	while (L < R)
-	{
-		if (A[mid] == s)
-			return TRUE;
-		else if (A[mid] < s)
-			L = mid + 1;
-		else if (A[mid] > s OR A[mid] == empty)
-			R = mid -1;	
-	}
-	return FALSE;
-}
-\end{lstlisting}
-
-\textbf{Proof of correctness}\\
-For the infinite\_search() function, in order to prove correctness we can take the assertion that if the loop breaks after i iterations then the given key must lie between i and i/2.\\
-The above assertion is true for all cases irrespective the key values being found or not. Now, this function will, if the key is found, get to modified binary search. Now, for the modified binary search, we have a normal binary search only difference being, even if the value at R not be there, we are basically assuming it to be some high value. Note that this value shall always be higher than the key as that is the only case when the function is called.\\
-Now this means that after ith iteration if the loop exits then they key value was lying between $k = 2^i$ and $k/2$. Now the modified binary search works the same way as a normal Binary search only except it ensures that the absence of value at k will not affect the end result.\\
-Hence, this algorithm will only return correct results.
-\\
-\textbf{Time Complexity}\\
-The function modif\_bin\_search takes log(i) steps to give us a solution (Similar to a binary search). Now the original function in the worst case takes log(n) steps. Thus in the worst possible case our algorithm shall consume 2 * log (n). Hence, the order of the given algorithm is log (n).\\
-This can also be proposed by saying that the number of elements that this algorithm skips keeps on doubling every loop and so the order should be log (n).\\
-Notice that the base of log (n) is decided based on our choice of the multiplier in every step.
+\p{For each value of n, average values and exceed percentages have been determined for 1000 iterations. It can be seen from average run time and average comparison values of Quick sort that it is of the order $O(nlogn)$.\\ As array size increases, run time values for each different array gets closer to average for that array size. Also, for same array size, run time values exceeding a certain percentage decreases asymptotically.}
 
 \section*{Problem 2}
-\textbf{Yes}, it is possible to give the maximum size of the banner. Algorithm of the same is as following - 
-\begin{lstlisting}[caption=Pseudo Code.]
-left = 0; right = n;
-max_rectangle_area (height[n],width[n],left,right)
+\subsection*{Part A}
+\textbf{Pseudo Code: }
+\begin{lstlisting}[label={list:first},caption=Op, mathescape = true]
+void Op (int c[],int low, int high)
 {
-    if (left==right) return {height(left),width(left)};
-    m = right - left + 1;
-    return merge( max_rectangle_area (height[n],width[n],left,right - m), max_rectangle_area (height[n],width[n],right - m + 1,right));   
+	n $\leftarrow$ high - low + 1; //number of elements between high and low index
+	if(n <= 1) //base case
+	    return;
+    two[],one[],zero[];
+    for (i = low,i < high,i++){
+        if(i-low < size(two)) c[i] = two[i - low];
+        if(i-low < size(one)) c[i] = one[i - low];
+        if(i-low < size(zero)) c[i] = zero[i - low];
+    }
+    c[] = two[] + one[] + zero[]; //in O(n)
+    free(two);free(one);free(zero);
+    Op(c, low , low+size(two)-1);
+    Op(c, low+size(two) , low+size(two)+size(one)-1);
+    Op(c, low+size(two)+size(one) , low+size(two)+size(one)+size(zero)-1);
 }
-merge({h1,d1},{h2,d2})
-{
-    if(h1 >= h2) temp = {h2,(d1+d2)};
-    else temp = {h1*(d1+d2)};
-    return max_area({h1,d1},{h2,d2},temp);
-}
-max_area(area1,area2,area3)
-{
-    if(area1[1]*area1[2] >= area2[1]*area2[2]){
-        if(area1[1]*area1[2] >= area3[1]*area3[2]) return area1;}
-    else if(area2[1]*area2[2] >= area3[1]*area3[2]) return area2;
-    else return area3;
-}
-
 \end{lstlisting}
-
-Given algorithm is similar to merge sort.\\
-\textbf{Proof Of Correctness -}\\
-Base Case is n = 1. For base case max area is equal to the area of building which is correct.\\
-Assume the algo is correct for all n < k the for n = k,\\
-buildings will be divided in 2 sets with n = k/2. As (k/2 < k) so the algo will give correct output for k also provided that merge function is correct.\\
-As merge function gives the max possible area of two halves so the function is correct.\\
-\textbf{Time complexity -}\\
-T(n) = 2*T(n/2) + N and T(1) = 1.\\
-$\implies T(n) = O(nlogn)$\\
-
-\section*{Problem 3}
-\textbf{Part (a)} Deleting 55 \\
-Step I.\\
-%%%%%%%%%% Step 1 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 6.5cm},
-level 3/.style={sibling distance = 3.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {79}
-    child{ node [arn_n] {35}
-        child{ node [arn_r] {19} 
-            child{ node [arn_n, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}           		
-            		}            	
-				child{ node [arn_n] {13}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-            child{ node [arn_n] {22}
-				child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}				
-				}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}		
-					}
-            	}
-        	}
-        child{ node [arn_n] {49}
-            child{ node [arn_n] {39}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-            }
-            child{ node [arn_x] {}}
-        }                            
-    }
-    child{ node [arn_x] {}
-    }
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 1 end %%%%%%%%%%%%%
-\linebreak
-\pagebreak
-Step II.\\
-%%%%%%%%%% Step 2 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 6.5cm},
-level 3/.style={sibling distance = 3.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {79}
-    child{ node [arn_n] {35}
-        child{ node [arn_n] {22} 
-            child{ node [arn_r, name=leaf 5] {19}
-            	child{ node [arn_n] {10}
-					child{ node [arn_n] {4}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}					
-						}
-					child{ node [arn_n] {13}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}		
-						}           		
-            		}            	
-				child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-            child{ node [arn_n] {33}
-				child{ node [arn_x] {}}
-				child{ node [arn_x] {}}
-            	}
-        	}
-        child{ node [arn_n] {49}
-            child{ node [arn_n] {39}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-            }
-            child{ node [arn_x] {}}
-        }                            
-    }
-    child{ node [arn_x] {}
-    }
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 2 end %%%%%%%%%%%%%
-\linebreak
-Step III.\\
-%%%%%%%%%% Step 3 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 6.5cm},
-level 3/.style={sibling distance = 3.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {79}
-    child{ node [arn_n] {22}
-        child{ node [arn_r] {19} 
-            child{ node [arn_n, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}					
-						}
-					child{ node [arn_n] {13}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}		
-						}           		
-            		}            	
-			child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-        child{ node [arn_n] {35}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-				child{ node [arn_n] {49}
-					child{ node [arn_n] {39}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}				
-						}					
-					}
-            	}
-        	}
-        child{ node [arn_x] {}}                            
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 3 end %%%%%%%%%%%%%
-\linebreak
-Step IV.\\
-%%%%%%%%%% Step 4 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 7.5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 3.5cm},
-level 3/.style={sibling distance = 2.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {22}
-        child{ node [arn_r] {19} 
-            child{ node [arn_n, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}					
-						}
-					child{ node [arn_n] {13}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}		
-						}           		
-            		}            	
-			child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-        child{ node [arn_n] {35}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-				child{ node [arn_n] {49}
-					child{ node [arn_n] {39}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}				
-						}					
-					child{ node [arn_n] {79}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}				
-						}					
-					}
-            	}
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 4 end %%%%%%%%%%%%%
-\linebreak
-Step V.\\
-%%%%%%%%%% Step 5 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 7.5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 3.5cm},
-level 3/.style={sibling distance = 2.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {22}
-        child{ node [arn_n] {19} 
-            child{ node [arn_r, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}					
-						}
-					child{ node [arn_n] {13}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}		
-						}           		
-            		}            	
-			child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-        child{ node [arn_n] {35}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-				child{ node [arn_r] {49}
-					child{ node [arn_n] {39}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}				
-						}					
-					child{ node [arn_n] {79}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}				
-						}					
-					}
-            	}
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 5 end %%%%%%%%%%%%%
-\linebreak
-%%%%%%%%%%%%%%%%%%%Part(a)End%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Part (b)} Inserting 34 \\
-%%%%%%%%%% Step 1 %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 6.5cm},
-level 3/.style={sibling distance = 3.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {79}
-    child{ node [arn_n] {35}
-        child{ node [arn_r] {19} 
-            child{ node [arn_n, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}           		
-            		}            	
-				child{ node [arn_n] {13}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-            child{ node [arn_n] {22}
-				child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}				
-				}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}		
-					}
-            	}
-        	}
-        child{ node [arn_n] {49}
-            child{ node [arn_n] {39}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-            }
-            child{ node [arn_n] {55}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}            
-            }
-        }                            
-    }
-    child{ node [arn_x] {}
-    }
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 1 end %%%%%%%%%%%%%
-\linebreak
-%%%%%%%%%% Step 2 begin %%%%%%%%%%%%%
-\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1, level distance = 1.5cm},
-level 2/.style={sibling distance = 6.5cm},
-level 3/.style={sibling distance = 3.5cm},
-level 4/.style={sibling distance = 2.2cm}
-] 
-\node [arn_n] {79}
-    child{ node [arn_n] {35}
-        child{ node [arn_r] {19} 
-            child{ node [arn_n, name=leaf 5] {10}
-            	child{ node [arn_n] {4}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}           		
-            		}            	
-				child{ node [arn_n] {13}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-					}
-            	}
-            child{ node [arn_n] {22}
-				child{ node [arn_n] {20}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}				
-				}
-				child{ node [arn_n] {33}
-					child{ node [arn_x] {}}
-					child{ node [arn_r] {34}
-						child{ node [arn_x] {}}
-						child{ node [arn_x] {}}						
-						}		
-					}
-            	}
-        	}
-        child{ node [arn_n] {49}
-            child{ node [arn_n] {39}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}
-            }
-            child{ node [arn_n] {55}
-					child{ node [arn_x] {}}
-					child{ node [arn_x] {}}            
-            }
-        }                            
-    }
-    child{ node [arn_x] {}
-    }
-; 
-\end{tikzpicture}
-%%%%%%%%%% Step 2 end %%%%%%%%%%%%%
-
-\section*{Problem 4}
-We propose a data structure where we augment to every node of the exiting tree another value which is the pointer to the predecessor of the node. Now for this data structure we will be able to maintain the log (n) time complexity for Insert, Delete and Query operations and yet find the required \textit{k} predecessor in  O (k + log (n)). Although for this we shall have to change the Insert and Delete operations a bit. The details for the same are as follows.\\
-\textbf{The tree}\\
-A normal RB tree where each node, in addition to its own value also stores the value of its predecessor. So the structure of each node is like\\
-\begin{lstlisting}[label={list:first},caption=Node Structure.]
-struct Node{
-  int val;
-  struct Node *pre;	// Pointer to predecessor
-  struct Node *left,*right;  
-};
-\end{lstlisting}
-Now the algorithms\\
-\textbf{Algorithm for \textit{k} predecessor}\\
-\begin{lstlisting}[label={list:first},caption=k predecessor, mathescape = true]
-void k_pred (int num_predecessor,int value_to_search, Node * root)
-{
-	key $\leftarrow$ value_to_search;
-	ptr $\leftarrow$ search (key, root);
-	if(ptr == NULL)
-		return;
-	while (k != 0)
-	{
-		print(ptr.pre.val);
-		ptr $\leftarrow$ ptr.pre;
-		k = k - 1;	
+\begin{lstlisting}[label={list:first},caption=Query, mathescape = true]
+c = Op(c,0,n-1); //c is the input array of Size n
+b[n+1];
+b[0] $\leftarrow$ 0;
+	for(int64_t i = 0; i < n;i++){
+		b[i+1] = b[i] + c[i];
 	}
-}
-
-Node * search (int key, Node * root)
-{
-	p $\leftarrow$ root;
-	while(p != NULL)
-	{
-		if (p.val == key)
-			return p;
-		else if (p.val > key)
-			p $\leftarrow$ p.left;
-		else p $\leftarrow$ p.right;
-	}
+void Query(i,j,b){
+    return b[j+1] - b[i];
 }
 \end{lstlisting}
-\textbf{Proof of correctness for \textit{k} predecessor}\\
-Since this is an iterative algorithm, after every loop the value that it prints is basically the immediate predecessor of the current node. Now as this loop is called exactly k times and every time the loop updates the current node and prints the immediate predecessor to it. Thus, after k iterations when the loop is finally exited it would have published k predecessors of the given number.
-Hence, we can conclude that this algorithm gives the correct outputs at the end of execution.\\
-\\
-\textbf{Time Complexity for the above algorithm}\\
-For each query the search effectively does Binary Search and then returns the pointer to it. Thus its time complexity will be log (n) as is know. Now, each iteration of the loop would take 3 * T(1) time and the loop is executed k times. Hence the total time taken is 3 * k * T(1). Hence, the order would be log (n) + k.\\
-\\
-\textbf{Changes to Insert function}\\
-The only change we need to make in Insert is to search for the predecessor of the inserted value and augment this into the newly inserted node. Now, search for the predecessor shall be of order log (n), insert itself is of order log (n). Hence, insert is still done in O (log (n)).\\
-\\
-\textbf{Changes to Delete function}\\
-In deletion we need to store the predecessor of the deleted node in a temporary variable and then after deletion travel to the successor of the deleted node and change its predecessor from the previous value (equal to the deleted node) to the value stored in the temporary variable.
-This too similar to the above case will be done in O (log (n)).
+
+\textbf{Time Complexity: }\\
+Let the size of input array is \textbf{n} and number of queries is \textbf{q}.\\
+\[T_{Op}(n) = cn + 3 * T_{Op}(n/3) \textit{\ and\ } T_{Op}(1) = 1 \]
+\[\implies T_{Op}(n) = O(nlogn)\]\\
+Preprocessing for Query is O(n).\\
+\[T_{Query} = q * O(1)\\\]
+\[\implies T_{Query} = O(q)\]\\
+
+\textbf{Space Complexity: }\\
+in Op three arrays are made with total size of n but they are being freed before the recursive call so extra space needed is of order n.\\
+\textbf{Space Complexity of Op = O(n)}\\
+similarly for Query a new array is maintained.\\
+So, \textbf{Space Complexity of Query = O(n)}\\
 \end{document}
