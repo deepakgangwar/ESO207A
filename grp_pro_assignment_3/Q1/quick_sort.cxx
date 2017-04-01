@@ -15,9 +15,9 @@ typedef long long int llint_;
  * Set BENCHMARKING true to get execution time related information.
  ****************************************************************************/
 
-#define ARRAY_SIZE      int (4)
+#define ARRAY_SIZE      int (1e1)
 #define NUM_AVARAGE     int (1e1)
-#define INTEGER_SIZE    int (1e2)
+#define INTEGER_SIZE    int (1e1)
 #define BENCHMARKING    false
 
 // This function generates random number array of
@@ -66,7 +66,7 @@ int partition (llint_ array [], int l, int r)
         array [r] = temp;
 
 
-    return j;
+    return j + 1;
 }
 
 void quick_sort (llint_ array [], int l, int r)
