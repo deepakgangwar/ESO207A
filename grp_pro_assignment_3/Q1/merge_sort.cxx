@@ -8,8 +8,17 @@
 
 typedef long long int llint_;
 
+/****************************************************************************
+ * ARRAY_SIZE controls the size of the array, i.e 'n'.
+ * NUM_AVARAGE is the number of executions after which avarage is calculated.
+ * INTEGER_SIZE controls the size of individual elements.
+ * Set BENCHMARKING true to get execution time related information.
+ ****************************************************************************/
+
 #define ARRAY_SIZE      int (1e2)
+#define NUM_AVARAGE     int (1e2)
 #define INTEGER_SIZE    int (1e2)
+#define BENCHMARKING    false
 
 void merge_arrays (llint_ array[], int l, int r)
 {
@@ -68,10 +77,8 @@ void merge_sort (llint_ array[], int l, int r)
 
     int mid = (l / 2) + (r / 2);
 
-//Sorting the left side of the array
     merge_sort (array, l, mid);
 
-//Sorting the right side of the array
     merge_sort (array, mid + 1, r);
 
     merge_arrays (array, l, r);
