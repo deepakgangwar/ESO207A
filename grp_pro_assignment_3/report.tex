@@ -128,7 +128,12 @@ of comparisons \\than QuickSort & 938 & 999 & 1000 & 1000 & 1000\\ [1ex]
 \end{tabular}
 \end{center}
 
-\p{}
+The above table is obtained by avaraging the execution time for 1000 loops, where the numbers in the array are pseudo-randomly generated.
+The comparisions for merge sort are counted in the mergeAarray function while comparing the values from the temporary arrays and the merging them; This for quick sort is done when the numbers are compared inside the partition function.
+The algorithm for merge sort takes lesser number of comparisions than that for quick sort for most of the values, except for the smaller ones.
+Interestingly though merge sort takes higher amount of avarage time for execution on the same array for all of the array sizes.
+Now this is due to the fact that 
+
 
 \subsection*{Part B}
 \begin{center}
